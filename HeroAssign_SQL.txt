@@ -1,0 +1,290 @@
+Q1))-------------To create Employee Database and Grant the permissions to it--------------------
+create user Employee identified by system;
+alter user Employee identified by emp;
+grant create session to Employee;
+grant create table to Employee;
+----------------------To create Employee_Details table
+And To insert values into the  created table ---------------------------------------------
+create table Employee_Details
+   (
+    Emp_id number(5),
+    Emp_name varchar2(20),
+    Job_name varchar2(20),
+    Manager_id number(5),
+    Hire_data date,
+    Salary number(5),
+    Dep_id number(5)
+   );
+SQL> insert into Employee_Details values(1234,'varun','designer',101,'05-jan-2019',50000,201);
+1 row created.
+SQL> insert into Employee_Details values(1235,'arun','Software developer',102,'13-may-2018',70000,202);
+1 row created.
+SQL> insert into Employee_Details values(1236,'mani','web developer',103,'07-feb-2019',50000,203);
+1 row created.
+SQL> insert into Employee_Details values(1237,'surya','salesforce manager',104,'04-sep-2019',50000,204);
+1 row created.
+SQL> insert into Employee_Details values(1238,'ravi','execute manager',105,'11-sep-2019',65000,205);
+1 row created.
+SQL> insert into Employee_Details values(1239,'kiran','floor manager',106,'26-may-2018',35000,206);
+1 row created.
+SQL> insert into Employee_Details values(1240,'sai','UI/UX developer',107,'12-dec-2018',45000,207);
+1 row created.
+SQL> insert into Employee_Details values(1241,'eswar','Fullstack developer',108,'23-nov-2020',40000,208);
+1 row created.
+SQL> insert into Employee_Details values(1242,'guna','vice manager',109,'23-nov-2019',80000,209);
+1 row created.
+SQL> insert into Employee_Details values(1243,'suresh','observer',110,'15-jul-2020',25000,210);
+1 row created.
+SQL> insert into Employee_Details values(1244,'Raj','server manager',110,'15-jul-2020',25000,211);
+1 row created.
+
+--------------To display the table content---------------------------------
+SQL> select * from Employee_Details;
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1234 varun                designer                    101 05-JAN-19
+     50000        201
+      1235 arun                 Software developer          102 13-MAY-18
+     70000        202
+      1236 mani                 web developer               103 07-FEB-19
+     50000        203
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1237 surya                salesforce manager          104 04-SEP-19
+     50000        204
+      1238 ravi                 execute manager             105 11-SEP-19
+     65000        205
+      1239 kiran                floor manager               106 26-MAY-18
+     35000        206
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1240 sai                  UI/UX developer             107 12-DEC-18
+     45000        207
+      1241 eswar                Fullstack developer         108 23-NOV-20
+     40000        208
+      1242 guna                 vice manager                109 23-NOV-19
+     80000        209
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1243 suresh               observer                    110 15-JUL-20
+     25000        210
+      1244 Raj                  server manager              110 15-JUL-20
+     25000        211S
+11 rows selected.
+
+
+Query-1---Find the salaries of all the employees from the “Employee Details” table.
+SQL> select salary from Employee_Details;
+    SALARY
+----------
+     50000
+     70000
+     50000
+     50000
+     65000
+     35000
+     45000
+     40000
+     80000
+     25000
+10 rows selected.
+Query-2-----Find the unique designations of the employees from the table.
+SQL> select distinct Job_name from Employee_Details;
+JOB_NAME
+--------------------
+salesforce manager
+Fullstack developer
+web developer
+observer
+Software developer
+execute manager
+floor manager
+vice manager
+server manager
+designer
+UI/UX developer                 11 rows selected.
+Query-3-- Change the salary where the emp_name is “Raj”.
+SQL> update Employee_Details set salary=30000 where Emp_name='Raj';
+1 row updated.
+SQL> select * from Employee_Details;
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1234 varun                designer                    101 05-JAN-19
+     50000        201
+      1235 arun                 Software developer          102 13-MAY-18
+     70000        202
+      1236 mani                 web developer               103 07-FEB-19
+     50000        203
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1237 surya                salesforce manager          104 04-SEP-19
+     50000        204
+      1238 ravi                 execute manager             105 11-SEP-19
+     65000        205
+      1239 kiran                floor manager               106 26-MAY-18
+     35000        206
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1240 sai                  UI/UX developer             107 12-DEC-18
+     45000        207
+      1241 eswar                Fullstack developer         108 23-NOV-20
+     40000        208
+      1242 guna                 vice manager                109 23-NOV-19
+     80000        209
+    EMP_ID EMP_NAME             JOB_NAME             MANAGER_ID HIRE_DATA
+---------- -------------------- -------------------- ---------- ---------
+    SALARY     DEP_ID
+---------- ----------
+      1243 suresh               observer                    110 15-JUL-20
+     25000        210
+      1244 Raj                  server manager              110 15-JUL-20
+     30000        211
+11 rows selected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q2))---
+Create a database name - “Football”.
+Create a table name - “Football Venue”.
+Insert 10 details in the “Football Venue” table  -------
+SQL> create user Football identified by system;
+
+User created.
+
+SQL> grant create session to Foot ball
+  2  ;
+grant create session to Foot ball
+                            *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+SQL> grant create session to Football;
+Grant succeeded.
+SQL> grant create table to Football;
+Grant succeeded.
+SQL> create table Football_Venue
+   (
+    venue_id number(3),
+    venue_name varchar2(10),
+    city_id number(3),
+    capacity number(3)  );
+Table created.
+
+SQL> insert into Football_Venue values(1,'USA',555,700);
+
+1 row created.
+
+SQL> insert into Football_Venue values(2,'Germany',532,600);
+
+1 row created.
+
+SQL> insert into Football_Venue values(2,'Germany',532,800);
+
+1 row created.
+
+SQL> insert into Football_Venue values(3,'Australia',531,900);
+
+1 row created.
+
+SQL> insert into Football_Venue values(4,'spain',522,500);
+
+1 row created.
+
+SQL> insert into Football_Venue values(5,'france',352,650);
+
+1 row created.
+
+SQL> insert into Football_Venue values(6,'england',342,950);
+
+1 row created.
+
+SQL> insert into Football_Venue values(7,'paris',242,700);
+
+1 row created.
+SQL> insert into Football_Venue values(8,'paris',242,700);
+
+1 row created.
+
+SQL> insert into Football_Venue values(9,'paris',242,700);
+
+1 row created.
+
+Query-1-- Count the number of venues of the football world cup
+SQL> select count(venue_name) from Football_Venue;
+COUNT(VENUE_NAME)
+-----------------
+               10
+
+Query2-- Count the number of venues of the football wList all the venue names and capacities in the format of “Location” and “Volume”.orld cup.
+SQL> select venue_name as "Location" from Football_Venue;
+
+Location
+----------
+USA
+Germany
+Germany
+Australia
+spain
+france
+england
+paris
+paris
+paris
+SQL> select capacity as "Volume" from Football_Venue;
+    Volume
+----------
+       700
+       600
+       800
+       900
+       500
+       650
+       950
+       700
+       700
+       700
+
+Query3-- Delete all the details where venue_name is equal to “Australia”
+SQL> delete from Football_Venue where venue_name='Australia';
+1 row deleted.
+SQL> select * from Football_Venue;
+  VENUE_ID VENUE_NAME    CITY_ID   CAPACITY
+---------- ---------- ---------- ----------
+         1 USA               555        700
+         2 Germany           532        600
+         2 Germany           532        800
+         4 spain             522        500
+         5 france            352        650
+         6 england           342        950
+         7 paris             242        700
+         8 paris             242        700
+         9 paris             242        700
+
